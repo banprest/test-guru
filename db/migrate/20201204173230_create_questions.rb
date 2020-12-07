@@ -5,6 +5,5 @@ class CreateQuestions < ActiveRecord::Migration[6.0]
 
       t.timestamps
     end
-    add_reference :questions, :test, null: false, foreign_key: true
   end
 end
