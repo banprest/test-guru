@@ -4,5 +4,6 @@ class CreateTestsUsersJoinTable < ActiveRecord::Migration[6.0]
       t.references :test, foreign_key: true
       t.references :user, foreign_key: true
     end
+    add_reference :tests, :user, foreign_key: true
   end
 end
