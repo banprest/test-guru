@@ -1,6 +1,8 @@
 class User < ApplicationRecord
+  has_many :tests_users
+  has_many :tests, through: :tests_users
 
   def pass_test(level)
-    Test.joins("INNER JOIN user_infos ON test_id = tests.id AND user_id = #{self.id}").where("tests.level = ?", level)
+    tests.where("tests.level = ?", level )
   end
 end
