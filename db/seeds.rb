@@ -6,8 +6,8 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 
-user = User.create(username: 'banpresto')
-user1 = User.create(username: 'banpresto1')
+user = User.create(username: 'banpresto', mail: '123@mail.ru')
+user1 = User.create(username: 'banpresto1', mail: '321@gmail.com')
 
 category = Category.create(title: 'Frontend')
 category1 = Category.create(title: 'Backend')
@@ -15,6 +15,7 @@ category1 = Category.create(title: 'Backend')
 test1 = Test.create(title: 'Ruby', level: 2, category_id: category1.id, user_id: user1.id)
 test2 = Test.create(title: 'HTML', level: 1, category_id: category.id, user_id: user1.id)
 test3 = Test.create(title: 'CSS', level: 1, category_id: category.id, user_id: user1.id)
+Test.create(title: 'JAVA', level: 6, category_id: category1.id, user_id: user.id)
 
 question = Question.create(body: 'who?', test_id: test1.id)
 Answer.create(variant: '?', question_id: question.id)
