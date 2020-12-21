@@ -1,11 +1,12 @@
 class TestsController < ApplicationController
+
   before_action :find_test, only: [:show, :edit, :update, :destroy]
+
   def index
     @tests = Test.all
   end
 
   def show
-    
   end
 
   def new
@@ -22,7 +23,6 @@ class TestsController < ApplicationController
   end
 
   def edit
-   
   end
 
   def update
@@ -45,6 +45,6 @@ class TestsController < ApplicationController
   end
 
   def test_params
-    params.require(:test).permit(:title,:level,:category_id)
+    params.require(:test).permit(:title, :level, :category_id)
   end
 end

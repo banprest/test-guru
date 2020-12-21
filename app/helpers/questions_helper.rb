@@ -1,5 +1,9 @@
 module QuestionsHelper
   def question_header(question)
-    return "#{params[:action].capitalize} #{question.test.title} Question "
+    if question.persisted?
+      "Edit #{question.test.title} Question "
+    else
+      "Create New #{question.test.title} Question "
+    end
   end
 end
