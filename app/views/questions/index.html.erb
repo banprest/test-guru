@@ -1,0 +1,5 @@
+<h1>Test Questions</h1>
+	<%= link_to 'New Question', new_test_question_path(@test) %>
+<table>
+	<%= render 'questions', resource: @test %>
+</table>
