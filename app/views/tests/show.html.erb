@@ -8,5 +8,13 @@
 	<%= @test.level %>
 </p>
 
+<h2>Question</h2>
+
+<%= link_to 'New Question',new_test_question_path(@test) %>
+
+<ol>
+  <%= render @test.questions %>
+</ol>
+
 <%= link_to 'Edit', edit_test_path(@test) %>
 <%= link_to 'Back', tests_path %>
