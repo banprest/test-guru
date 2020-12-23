@@ -1,5 +1,6 @@
 class TestPassage < ApplicationRecord
-  attr_accessor :counts
+
+  PERCENTAGE_FOR_PASSING = 85
 
   belongs_to :user
   belongs_to :test
@@ -16,10 +17,22 @@ class TestPassage < ApplicationRecord
       self.correct_questions += 1
     end
     
-    self.count += 1
     self.current_question = next_question
     save!
   end
+
+  def counter
+    test.questions.order(:id).where('id <= ?', current_question).count
+  end
+
+  def test_result
+    self.correct_questions.to_f / self.test.questions.count * 100.0 
+  end
+
+  def success?
+    test_result.to_i >= PERCENTAGE_FOR_PASSING
+  end
+
 
   private
 

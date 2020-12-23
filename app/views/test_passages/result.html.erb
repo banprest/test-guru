@@ -1,8 +1,9 @@
 <h1>The <%= @test_passage.test.title %> Test was Comleted </h1>
-<% if test_result.to_i >= 85 %>
-<p style="color: green"><%= test_result.to_i %>%</p>
-<p>Test was succesful</p>
+
+<% if @test_passage.success? %>
+  <p style="color: green"><%= @test_passage.test_result.to_i %>%</p>
+  <p>Test was succesful</p>
 <% else %>
-<p style="color: red"><%= test_result.to_i %>%</p>
-<p>Test was not succesful</p>
+  <p style="color: red"><%= @test_passage.test_result.to_i %>%</p>
+  <p>Test was not succesful</p>
 <% end %>

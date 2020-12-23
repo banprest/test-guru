@@ -5,7 +5,7 @@
 </b>
 
 <p>
-  All questions <%= @test_passage.test.questions.count %> <%= @test_passage.count %>
+  All questions <%= @test_passage.test.questions.count %>.  Current question <%= @test_passage.counter %>
 </p>
 
 <%= form_with url: test_passage_path(@test_passage), locale: true, method: :put do |form| %>
