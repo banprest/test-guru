@@ -26,13 +26,12 @@ class TestPassage < ApplicationRecord
   end
 
   def test_result
-    self.correct_questions.to_f / self.test.questions.count * 100.0 
+    (self.correct_questions.to_f / self.test.questions.count * 100.0).to_i
   end
 
   def success?
-    test_result.to_i >= PERCENTAGE_FOR_PASSING
+    test_result >= PERCENTAGE_FOR_PASSING
   end
-
 
   private
 
