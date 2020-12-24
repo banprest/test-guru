@@ -1,6 +1,11 @@
 Rails.application.routes.draw do
 
-  
+  get :signup, to: 'users#new'
+  get :login, to: 'sessions#new'
+
+  resources :users, only: :create
+  resources :sessions, only: [:create, :destroy]
+
   resources :tests do
     resources :questions, shallow: true, except: :index do
       resources :answers, shallow: true, except: :index
