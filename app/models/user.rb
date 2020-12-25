@@ -6,7 +6,7 @@ class User < ApplicationRecord
   has_many :tests, through: :test_passages
   has_many :created_tests, class_name: 'Test'
 
-  validates :mail, presence: true, format: MAIL
+  validates :mail, presence: true, format: MAIL, uniqueness: { scope: :username }
 
   has_secure_password
 
