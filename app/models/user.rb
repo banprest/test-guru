@@ -1,9 +1,14 @@
 class User < ApplicationRecord
+
+  MAIL = /[a-z0-9]@[a-z]+\.[a-z]+/i
+
   has_many :test_passages
   has_many :tests, through: :test_passages
   has_many :created_tests, class_name: 'Test'
 
-  validates :mail, presence: true
+  validates :mail, presence: true, format: MAIL, uniqueness: true
+
+  has_secure_password
 
   def pass_test(level)
     tests.where(level: level)
