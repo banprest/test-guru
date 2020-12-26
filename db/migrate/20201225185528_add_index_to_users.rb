@@ -1,5 +1,5 @@
 class AddIndexToUsers < ActiveRecord::Migration[6.0]
   def change
-    add_index :users, [:mail, :username], unique: true
+    add_index :users, :mail, unique: true
   end
 end
