@@ -36,6 +36,11 @@ class AddDeviseToUsers < ActiveRecord::Migration[6.0]
       # t.timestamps null: false
     end
 
+    add_column :users, :type, :string, null: false, default: 'User'
+    add_column :users, :first_name, :string
+    add_column :users, :last_name, :string
+    add_index :users, :type
+
     change_column_default :users, :mail, ''
     rename_column :users, :mail, :email
     remove_column :users, :password_digest
@@ -59,7 +64,10 @@ class AddDeviseToUsers < ActiveRecord::Migration[6.0]
                           :confirmation_token,
                           :confirmed_at,
                           :confirmation_sent_at,
-                          :unconfirmed_email
+                          :unconfirmed_email,
+                          :type,
+                          :first_name,
+                          :last_name
 
     add_column :users, :password_digest, :string
     add_column :users, :username, :string
