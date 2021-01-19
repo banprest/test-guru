@@ -23,11 +23,15 @@ class TestPassagesController < ApplicationController
   end
 
   def gist
-    result = GistQuestionService.new(@test_passage.current_question).call
-    
-    if result.present?
-      flash_options = { notice: t('.success', link: result.html_url) }
-      current_user.gists.create(gist_url: result.html_url, question_body: @test_passage.current_question.body)
+    result = GistQuestionService.new(@test_passage.current_question)
+    result2 = result.call
+    # Обьясните пожалуйста почему при result = GistQuestionService.new(@test_passage.current_question).call
+    # gist_success  возвращает nil, а  result = GistQuestionService.new(@test_passage.current_question)
+    # result.call
+    # result.gist_success возврощает true
+    if result.gist_success?
+      flash_options = { notice: t('.success', link: result2.html_url) }
+      current_user.gists.create(gist_url: result2.html_url, question_body: @test_passage.current_question.body)
     else
       flash_options = { alert: t('.failure') }
     end
@@ -40,5 +44,4 @@ class TestPassagesController < ApplicationController
   def find_test_passage
     @test_passage = TestPassage.find(params[:id])
   end
-
 end
