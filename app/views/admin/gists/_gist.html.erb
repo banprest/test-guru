@@ -1,0 +1,7 @@
+<tbody align="center">  
+  <tr>
+    <th scope="row"><%= link_to (gist.question_body.first(25)), admin_question_path(Question.find_by(body: gist.question_body)) %></th>
+    <td><%= gist.user.email %></td>
+    <td><%= link_to 'URL', gist.gist_url, target: :_blank %></td>
+  </tr>
+</tbody>
