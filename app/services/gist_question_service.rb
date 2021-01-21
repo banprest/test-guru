@@ -12,9 +12,6 @@ class GistQuestionService
 
   def gist_success?
     @client.last_response.status == 201
-    #@client.last_response.status == 200 || 201 возврощает 201, 201 || 200 true
-    #@client.last_response == 200 || 201 почему воврощает любое число которое идет после ||
-
   end
 
 
