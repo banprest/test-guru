@@ -33,12 +33,18 @@ ru:
   test_passages:
     result:
       header: "Тест %{title} успешно завершен!"
+    gist:
+      success: "Gist успешно сохранен! %{link}"
+      failure: "Во время сохранения gist произошла ошибка"
 
   admin:
     shared:
       back: "Назад"
       edit: "Изменить"
-      new_question: "Новый вопрос" 
+      new_question: "Новый вопрос"
+    gists:
+      index:
+        question_body: "Тело вопроса" 
     tests:
       create:
         success: "Тест успешно создан."
@@ -67,3 +73,6 @@ ru:
   tests_mailer:
     completed_test:
       subject: "Вы успешно завершили тест на TetsGuru!"
+
+  gist_question_service:
+    description: "Вопрос из %{title} для TestGuru"

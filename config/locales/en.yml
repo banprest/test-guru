@@ -31,12 +31,18 @@ en:
   test_passages:
     result:
       header: "The %{title} Test was Completed!"
+    gist:
+      success: "Gist was successfully created! %{link}"
+      failure: "An error occurred while saving gist"
 
   admin:
     shared:
       back: "Back"
       edit: "Edit"
-      new_question: "New question" 
+      new_question: "New question"
+    gists:
+      index:
+        question_body: "Тело вопроса" 
     tests:
       create:
         success: "Test was successfully created."
@@ -65,3 +71,6 @@ en:
   tests_mailer:
     completed_test:
       subject: "You just completed the TestGuru test!"
+
+  gist_question_service:
+    description: "A question about %{title} from TestGuru"
