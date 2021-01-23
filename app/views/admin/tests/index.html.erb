@@ -1,9 +1,13 @@
 <h1><%= t('.header') %></h1>
 <p><%= link_to t('.new_test'), new_admin_test_path %></p>
-<table class="table table-sm">
+<table class="table">
   <thead class="thead-light" align="center">
     <tr>
-      <th scope="col"><%= t('.title') %></th>
+      <th class="sort-by-title pointer">
+        <%= t('.title') %>
+        <%= octicon 'arrow-up', class: 'text-success hide' %>
+        <%= octicon 'arrow-down', class: 'text-success hide' %>  
+      </th>
       <th scope="col"><%= t('.level') %></th>
       <th scope="col" colspan="3"><%= t('.actions') %></th>
       <th scope="col"><%= t('.questions_count') %></th>

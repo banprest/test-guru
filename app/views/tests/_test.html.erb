@@ -1,6 +1,6 @@
 <tbody align="center">
   <tr>
-  	<th scope="row"><%= test.title %></th>
+  	<td><%= test.title %></th>
   	<td><%= test.level %></td>
   	<td><%= button_to t('.start'), start_test_path(test), class: 'btn btn-primary' %></td>
   	<td><%= test.questions.count %></td>
