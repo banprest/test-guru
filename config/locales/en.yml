@@ -67,6 +67,8 @@ en:
         question: "Question"
       new:
         header: "Create New Test"
+      form_inline:
+        submit: "OK"
 
   tests_mailer:
     completed_test:
