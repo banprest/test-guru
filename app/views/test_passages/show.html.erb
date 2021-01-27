@@ -17,5 +17,6 @@
   <% end %>
 
   <p><%= link_to 'Gist Question', gist_test_passage_path(@test_passage), method: :post %></p>
-  <p><%= form.submit 'Next' %></p>
+  <p><%= form.submit 'Next', class: 'progress-bar', data: { progress: @test_passage.counter } %></p>
+  <progress id="progress" value="0" max="<%= @test_passage.test.questions.count %>"></progress>
 <% end %>
