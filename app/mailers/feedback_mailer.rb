@@ -1,9 +1,10 @@
 class FeedbackMailer < ApplicationMailer
   
   def delive_feedback(feedback)
+    @admin = Admin.first
     @title = feedback[:title]
     @text = feedback[:text]
 
-    mail to: ENV['SMTP_USERNAME']
+    mail to: @admin.email
   end
 end
