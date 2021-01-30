@@ -1,6 +1,15 @@
 ru:
   hello: "Привет мир"
 
+  feedback:
+    create:
+      success: "Отзыв отправлен"
+      alert: "Отзыв не отправлен"
+    form:
+      enter: "Отправить"
+      title: "Название"
+      text: "Текст"
+
   helpers:
     submit:
       test:
@@ -19,6 +28,9 @@ ru:
         many: "Обнаружено %{count} ошибок"
         one: "Обнаружена %{count} ошибка"
         other: "Обнаружено %{count} ошибки"
+    footer:
+      feedback: "Оставьте свой отзыв"
+
 
   tests:
     test:
@@ -72,6 +84,9 @@ ru:
       form_inline:
         submit: "OK"
 
+  feedback_mailer:
+    delive_feedback:
+      header: "Получен отзыв"
 
   tests_mailer:
     completed_test:

@@ -1,9 +1,11 @@
-<footer>
+<footer class="card-footer fixed-bottom">
   
   <p><%= github_url('banprest', 'Test-guru') %></p>
   
   <p>Учебный проект в онлайн-школt <%= link_to 'Thinknetica','https://thinknetica.com', target: :_blank %></p>
   
   <p><%= current_year %></p>
+
+  <%= link_to t('.feedback'), new_feedback_path %>
 
 </footer>
