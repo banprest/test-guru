@@ -56,7 +56,12 @@ ru:
       new_question: "Новый вопрос"
     gists:
       index:
-        question_body: "Тело вопроса" 
+        question_body: "Тело вопроса"
+    questions:
+      new:
+        header: "Новый вопрос"
+      edit:
+        header: "Изменить вопрос" 
     tests:
       create:
         success: "Тест успешно создан."
