@@ -41,6 +41,8 @@ ru:
       level: "Уровень"
       actions: "Действия"
       questions_count: "Количество вопросов"
+    start:
+      alert: "Теста не существует"
 
   test_passages:
     result:

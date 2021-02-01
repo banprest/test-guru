@@ -39,6 +39,8 @@ en:
       level: "Level"
       actions: "Actions"
       questions_count: "Questions_count"
+    start:
+      alert: "The test does not exist"
 
   test_passages:
     result:

@@ -1,10 +1,11 @@
 class FeedbackMailer < ApplicationMailer
   
   def delive_feedback(feedback)
-    @admin = Admin.first
     @title = feedback[:title]
     @text = feedback[:text]
 
-    mail to: @admin.email
+    Admin.find_each do |admin|
+      mail to: admin.email
+    end
   end
 end
