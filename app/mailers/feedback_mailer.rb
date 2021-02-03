@@ -4,8 +4,6 @@ class FeedbackMailer < ApplicationMailer
     @title = feedback[:title]
     @text = feedback[:text]
 
-    Admin.find_each do |admin|
-      mail to: admin.email
-    end
+    mail to: [Admin.first.email, Admin.last.email]
   end
 end
