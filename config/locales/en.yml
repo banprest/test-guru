@@ -1,5 +1,15 @@
 en:
   hello: "Hello world"
+  
+  feedback:
+    create:
+      success: "Feedback success"
+      alert: "Feedback not success"
+    form:
+      enter: "Send"
+      title: "Title"
+      text: "Text"
+
 
   helpers:
     submit:
@@ -17,6 +27,8 @@ en:
       header:
         one: "%{count} error detected"
         other: "%{count} errors detected"
+    footer:
+      feedback: "feedback"
 
   tests:
     test:
@@ -27,6 +39,8 @@ en:
       level: "Level"
       actions: "Actions"
       questions_count: "Questions_count"
+    start:
+      alert: "The test does not exist"
 
   test_passages:
     result:
@@ -42,7 +56,12 @@ en:
       new_question: "New question"
     gists:
       index:
-        question_body: "Тело вопроса" 
+        question_body: "question body"
+    questions:
+      new:
+        header: "New qusetion"
+      edit:
+        header: "Edit question"  
     tests:
       create:
         success: "Test was successfully created."
@@ -69,6 +88,10 @@ en:
         header: "Create New Test"
       form_inline:
         submit: "OK"
+
+  feedback_mailer:
+    delive_feedback:
+      header: "Review received"
 
   tests_mailer:
     completed_test:

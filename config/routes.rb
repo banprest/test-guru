@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :feedback, only: [:new, :create]
+
   resources :test_passages, only: [:show, :update] do
     member do
       get :result

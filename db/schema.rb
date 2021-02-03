@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_01_19_101300) do
+ActiveRecord::Schema.define(version: 2021_01_27_165718) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "answers", force: :cascade do |t|
     t.boolean "correct", default: false
@@ -19,12 +22,14 @@ ActiveRecord::Schema.define(version: 2021_01_19_101300) do
     t.datetime "updated_at", precision: 6, null: false
     t.integer "question_id", null: false
     t.index ["question_id"], name: "index_answers_on_question_id"
+    t.index ["variant"], name: "index_answers_on_variant"
   end
 
   create_table "categories", force: :cascade do |t|
     t.string "title", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["title"], name: "index_categories_on_title"
   end
 
   create_table "gists", force: :cascade do |t|
@@ -41,6 +46,7 @@ ActiveRecord::Schema.define(version: 2021_01_19_101300) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "test_id", null: false
+    t.index ["body"], name: "index_questions_on_body"
     t.index ["test_id"], name: "index_questions_on_test_id"
   end
 
@@ -90,6 +96,7 @@ ActiveRecord::Schema.define(version: 2021_01_19_101300) do
     t.string "last_name"
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["first_name", "last_name"], name: "index_users_on_first_name_and_last_name"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["type"], name: "index_users_on_type"
   end

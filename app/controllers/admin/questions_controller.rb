@@ -32,11 +32,9 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def edit
-
   end
 
   def update
-
     if @question.update(question_params)
       redirect_to [:admin, @question]
     else
