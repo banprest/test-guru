@@ -33,6 +33,38 @@ class TestPassage < ApplicationRecord
     test_result >= PERCENTAGE_FOR_PASSING
   end
 
+  def all_completed_backend_tests?(user)
+    user.tests.where(category_id: Category.find_by(title: 'Backend')).
+                              distinct.count == Category.where(title: 'Backend').
+                              count
+  end
+
+  def all_completed_frontend_tests?(user)
+    user.tests.where(category_id: Category.find_by(title: 'Frontend')).
+                          distinct.count == Category.where(title: 'Frontend').
+                          count
+  end   
+
+  def all_completed_level_tests?(user, level)
+    user.tests.where("level = ?", level).
+                          distinct.count == Test.all.
+                          where("level = ?", level).count 
+  end
+    #Я запутался подскажите пожалуйста. В голове кроме такого решения раздачи бейджов нет
+    #И не могу понять как лучше связать правила раздачи и условия
+
+  def distribution_badge(user, test)
+    if all_completed_backend_tests?(user)
+      user.badges.push(Badge.find_by(rule_value: 'Backend'))
+    elsif all_completed_frontend_tests?(user)
+      user.badges.push(Badge.find_by(rule_value: 'Frontend'))
+    elsif all_completed_level_tests?(user, test.level)
+      user.badges.push(Badge.find_by("rule_value = ?", test.level.to_s))
+    else
+      return
+    end
+  end
+
   private
 
   def before_validation_set_first_question

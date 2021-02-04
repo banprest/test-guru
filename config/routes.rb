@@ -10,6 +10,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :badges, only: [:index]
+
   resources :feedback, only: [:new, :create]
 
   resources :test_passages, only: [:show, :update] do
@@ -20,6 +22,7 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
+    resources :badges
     resources :gists, only: :index
     resources :tests do
       patch :update_inline, on: :member
