@@ -1,6 +1,6 @@
 class BadgesController < ApplicationController
   
   def index
-    @badges = Badge.select(:image).distinct
+    @badges = Badge.all
   end
 end
