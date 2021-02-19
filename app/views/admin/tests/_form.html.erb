@@ -5,7 +5,7 @@
 				<%= form_with model: [:admin, @test], local: true do |form| %>
 					<%= render 'shared/errors', resource: @test %>
 					<div class="form-group">
-				  	<p>
+				  <p>
 					  <%= form.label :title %><br>
 					  <%= form.text_field :title, id: :test_title, class: 'form-control'%>
 					</p>
@@ -18,6 +18,11 @@
 					<p>
 						<%= form.label :category_id %>:
 						<%= form.collection_select :category_id, Category.all, :id, :title, prompt: true, class: 'form-control' %>
+					</p>
+
+					<p>
+						<%= form.label :timer %>
+						<%= form.number_field :timer, id: :test_timer, class: 'form-control' %>
 					</p>
 
 					<p><%= form.submit class: 'btn btn-primary' %></p>
