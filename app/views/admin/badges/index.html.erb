@@ -1,0 +1,14 @@
+<div class="container">
+  <h1>header</h1>
+  <%= link_to 'new badges', new_admin_badge_path %>
+  <div class="row">
+    <table class="table" align="center">
+      <thead class="light">
+        <th scope="col">image</th>
+        <th scope="col">title</th>
+        <th colspan="3">action</th>
+      </thead>
+      <%= render @badges %>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,12 @@
+<h1>all badges</h1>
+<div class="container">
+  <div class="row row-cols-6">
+    <%= render @badges %>
+  </div>
+</div>
+<h1>my badges</h1>
+<div class="container">
+  <div class="row row-cols-6">
+    <%= render current_user.badges %>
+  </div>
+</div>

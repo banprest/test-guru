@@ -8,6 +8,8 @@ class TestPassage < ApplicationRecord
 
   before_validation :before_validation_set_first_question, on: :create
 
+  scope :passed, -> { where(passed: true) }
+
   def completed?
     current_question.nil?
   end
@@ -16,13 +18,18 @@ class TestPassage < ApplicationRecord
     if correct_answer?(answer_ids)
       self.correct_questions += 1
     end
-    
+
     self.current_question = next_question
     save!
   end
 
   def counter
     test.questions.order(:id).where('id <= ?', current_question).count
+  end
+
+  def change_passed_status
+    self.passed = true
+    save!
   end
 
   def test_result
