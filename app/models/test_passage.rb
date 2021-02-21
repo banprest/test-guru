@@ -40,6 +40,14 @@ class TestPassage < ApplicationRecord
     test_result >= PERCENTAGE_FOR_PASSING
   end
 
+  def end_time
+    (self.created_at + self.test.timer * 60).to_i * 1000
+  end
+
+  def time_off?
+    end_time <= Time.now.to_i * 1000
+  end
+
   private
 
   def before_validation_set_first_question

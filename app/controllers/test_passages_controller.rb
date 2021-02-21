@@ -10,7 +10,7 @@ class TestPassagesController < ApplicationController
   def update
     @test_passage.accept!(params[:answer_ids])
 
-    if @test_passage.completed?
+    if @test_passage.completed? || @test_passage.time_off?
       if @test_passage.success?
         @test_passage.change_passed_status
         BadgeDistributionService.new(@test_passage).call

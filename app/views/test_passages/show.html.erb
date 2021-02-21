@@ -4,6 +4,15 @@
   <b><%= @test_passage.current_question.body %></b>
 </p>
 
+<% if @test_passage.test.timer.present? %>
+  <h1></h1>
+  <div id="countdown">
+    <%= content_tag :span, "", class: "clock", data: { end_time: @test_passage.end_time } %>
+    <span class="minutes"></span>
+    <span class="seconds"></span>
+  </div>
+<% end %>
+
 <p>
   All questions <%= @test_passage.test.questions.count %>.  Current question <%= @test_passage.counter %>
 </p>
